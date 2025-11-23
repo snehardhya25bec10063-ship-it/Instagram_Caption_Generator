@@ -6,38 +6,36 @@ Demo Preview
 
 Features :
 
--Instantly generate creative, mood-matched Instagram captions
--Supports any vibe: Casual, Funny, Motivational, Aesthetic, Savage, Romantic, etc.
--Smart fallbacks when no OpenAI API key is provided
--Graceful handling of rate limits and errors
--Clean, responsive UI with one-click copy
--Works offline with mock mode (great for demos or testing)
+   -Instantly generate creative, mood-matched Instagram captions
+   -Supports any vibe: Casual, Funny, Motivational, Aesthetic, Savage, Romantic, etc.
+   -Smart fallbacks when no OpenAI API key is provided
+   -Graceful handling of rate limits and errors
+   -Clean, responsive UI with one-click copy
+   -Works offline with mock mode (great for demos or testing)
 
-Live Demo :
-
-http://127.0.0.1:5000
+Live Demo : http://127.0.0.1:5000
 
 Example of Captions Generated -
 
--Input: "Sunset at the beach with friends"
+   -Input: "Sunset at the beach with friends"
 
--Mood: Chill
+   -Mood: Chill
 
--Output:
+   -Output:
 
--Chasing sunsets and good vibes only 
+   -Chasing sunsets and good vibes only 
 
--#BeachDays #GoldenHour #LifeIsBetterWithFriends
+   -#BeachDays #GoldenHour #LifeIsBetterWithFriends
 
 
-Future ideas/Contributing
+Future ideas/Contributing -
 
  Pull requests are welcome! Feel free to:
 
--Improve the UI/UX
+  -Improve the UI/UX
 
--Add more mood presets
+  -Add more mood presets
 
--Support image upload + vision analysis (GPT-4 Vision)
+  -Support image upload + vision analysis (GPT-4 Vision)
 
--Add caption length options
+  -Add caption length options
