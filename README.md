@@ -12,8 +12,10 @@ Features :
    -Graceful handling of rate limits and errors
    -Clean, responsive UI with one-click copy
    -Works offline with mock mode (great for demos or testing)
+   
 
 Live Demo : http://127.0.0.1:5000
+
 
 Example of Captions Generated -
 
@@ -26,6 +28,8 @@ Example of Captions Generated -
    -Chasing sunsets and good vibes only 
 
    -#BeachDays #GoldenHour #LifeIsBetterWithFriends
+
+   
 
 
 Future ideas/Contributing -
