@@ -1,74 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-    <title>AI Instagram Caption Generator </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Instagram Caption Generator</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-            background-color: #f4f4f4;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
-        h1 {
-            color: #333;
-        }
-        form {
-            margin-bottom: 30px;
-        }
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        textarea, select {
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 50px 40px;
+            max-width: 500px;
             width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
         }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        label {
+            display: none;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            outline: none;
+            color: #333;
+            resize: vertical;
+            min-height: 50px;
+        }
+
+        textarea::placeholder {
+            color: #999;
+        }
+
+        textarea:focus {
+            border-color: #16a085;
+            box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.1);
+        }
+
+        select {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            padding-right: 45px;
+        }
+
+        select:focus {
+            border-color: #16a085;
+            box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.1);
+        }
+
         button {
-            padding: 10px 20px;
-            background-color: #28a745;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%);
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(22, 160, 133, 0.3);
         }
+
         button:hover {
-            background-color: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(22, 160, 133, 0.4);
         }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(22, 160, 133, 0.3);
+        }
+
         .caption-result {
-            background-color: #fff;
+            background-color: #f8f9fa;
             padding: 20px;
-            border-radius: 4px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 30px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .caption-result p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>AI Instagram Caption Generator</h1>
-    <form method="POST">
-        <label for="description">What is your post about:</label>
-        <textarea id="description" name="description" rows="4" placeholder="Describe your post" required></textarea>
-        <label for="mood">Select the mood for the caption</label>
-        <select id="mood" name="mood" required>
-            <option value="" disabled selected>Select mood</option>
-            <option value="Funny">Funny</option>
-            <option value="Inspirational">Inspirational</option>
-            <option value="Sarcastic">Sarcastic</option>
-            <option value="Sad">Sad</option>
-            <option value="Romantic">Romantic</option>
-            <option value="Casual">Casual</option>
-            <option value="Professional">Professional</option>
-        </select>
-        <button type="submit">Generate Caption</button>
-    </form>
-    {% if caption %}
-    <div class = "caption-result">
-        <h2>Generated Caption</h2>
-        <p>{{ caption }}</p>
+    <div class="container">
+        <h1>AI Instagram Caption Generator</h1>
+        
+        <form method="POST">
+            <div class="input-group">
+                <label for="description">What is your post about:</label>
+                <textarea id="description" name="description" rows="3" placeholder="What is your post about?" required></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="mood">Select the mood for the caption</label>
+                <select id="mood" name="mood" required>
+                    <option value="Funny">Funny</option>
+                    <option value="Inspirational">Inspirational</option>
+                    <option value="Sarcastic">Sarcastic</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Romantic">Romantic</option>
+                    <option value="Casual">Casual</option>
+                    <option value="Professional">Professional</option>
+                </select>
+            </div>
+
+            <button type="submit">Generate Caption</button>
+        </form>
+
+        {% if caption %}
+        <div class="caption-result">
+            <h2>Generated Caption</h2>
+            <p>{{ caption }}</p>
         </div>
-    {% endif %}
+        {% endif %}
+    </div>
 </body>
 </html>
