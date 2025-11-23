@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <title>AI Instagram Caption Generator </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .caption-result {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>AI Instagram Caption Generator</h1>
+    <form method="POST">
+        <label for="description">What is your post about:</label>
+        <textarea id="description" name="description" rows="4" placeholder="Describe your post" required></textarea>
+        <label for="mood">Select the mood for the caption</label>
+        <select id="mood" name="mood" required>
+            <option value="" disabled selected>Select mood</option>
+            <option value="Funny">Funny</option>
+            <option value="Inspirational">Inspirational</option>
+            <option value="Sarcastic">Sarcastic</option>
+            <option value="Sad">Sad</option>
+            <option value="Romantic">Romantic</option>
+            <option value="Casual">Casual</option>
+            <option value="Professional">Professional</option>
+        </select>
+        <button type="submit">Generate Caption</button>
+    </form>
+    {% if caption %}
+    <div class = "caption-result">
+        <h2>Generated Caption</h2>
+        <p>{{ caption }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
