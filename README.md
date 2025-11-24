@@ -1,8 +1,10 @@
 # Instagram_Caption_Generator
-Make better captions in seconds — a Flask web app that uses OpenAI to create short, mood-aware Instagram captions from a brief post description.
+This project is called Instagram Caption Generator, built using Flask, HTML, and the OpenAI API. The main idea behind this project was to create a simple tool that helps users generate creative and catchy Instagram captions automatically based on their post and chosen mood.
 
 Demo Preview
-<img width="1672" height="781" alt="Screenshot 2025-11-23 151054" src="https://github.com/user-attachments/assets/28aa4f24-0241-4ea0-8bb0-dce9df3cfeac" />
+![Screenshot 2025-11-24 at 7 20 34 PM](https://github.com/user-attachments/assets/741c1428-213d-42e9-9f08-0423de001704)
+
+
 
 Features :
 
