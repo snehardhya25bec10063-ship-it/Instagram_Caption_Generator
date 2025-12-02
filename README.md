@@ -1,45 +1,73 @@
 # Instagram_Caption_Generator
-This project is called Instagram Caption Generator, built using Flask, HTML, and the OpenAI API. The main idea behind this project was to create a simple tool that helps users generate creative and catchy Instagram captions automatically based on their post and chosen mood.
 
-Demo Preview
-![Screenshot 2025-11-24 at 7 20 34 PM](https://github.com/user-attachments/assets/741c1428-213d-42e9-9f08-0423de001704)
+A small Flask web app that generates short Instagram captions using Google's Gemini API. You enter a description of your post and choose a mood, and the app returns one clean caption. It also includes a mock fallback mode so it keeps working even when the API key is missing.
 
+## Features
 
+* Simple web form for description and mood
+* Uses the Gemini `gemini-2.0-flash` REST endpoint
+* Built-in request delay to reduce rate-limit errors
+* Mock caption generator for offline use or missing API key
+* Clean text parsing so you get only one caption without extra formatting
 
-Features :
+## How it works
 
-   -Instantly generate creative, mood-matched Instagram captions
-   -Supports any vibe: Casual, Funny, Motivational, Aesthetic, Savage, Romantic, etc.
-   -Smart fallbacks when no OpenAI API key is provided
-   -Graceful handling of rate limits and errors
-   -Clean, responsive UI with one-click copy
-   -Works offline with mock mode (great for demos or testing)
-   
+1. You submit a description and mood through the homepage.
+2. Flask builds a short prompt and prepares the JSON payload.
+3. The app calls:
+   `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`
+4. It extracts the first usable line of text from the response.
+5. If the API key is missing or something goes wrong, the app returns a mock caption.
 
-Demo : In order to use the programme open the programme in vs code, and then type- python app.py, in the terminal, then a link will be generated, follow the link to use the web application.
+## Installation
 
+Install the required packages:
 
-Example of Captions Generated -
+```
+pip install flask requests python-dotenv
+```
 
-   -Input: "Sunset at the beach with friends"
+## Environment variables
 
-   -Mood: Chill
+Create a `.env` file (or set these in your system):
 
-   -Output: Chasing sunsets and good vibes only 
+```
+GEMINI_API_KEY=your_api_key_here
+MOCK_FALLBACK=1   # optional; enables mock captions when no key is present
+FLASK_ENV=development
+```
 
-   -#BeachDays #GoldenHour #LifeIsBetterWithFriends
+If you don’t set `GEMINI_API_KEY`, the app will still run. With fallback enabled, it returns mock captions.
 
-   
+## Running the app
 
+Start the server:
 
-Future ideas/Contributing -
+```
+python app.py
+```
 
- Pull requests are welcome! Feel free to:
+Open the app in your browser:
 
-  -Improve the UI/UX
+```
+http://127.0.0.1:5000/
+```
 
-  -Add more mood presets
+## Project structure
 
-  -Support image upload + vision analysis (GPT-4 Vision)
+* **app.py** – Flask server and Gemini API logic
+* **templates/index.html** – HTML form and output page
+* **.env** – optional environment configuration
 
-  -Add caption length options
+## Notes
+
+* Don’t commit your API key to GitHub.
+* Debug logs can reveal parts of prompts and responses. Keep debug mode off in production.
+* You can adjust `REQUEST_DELAY` in the code if you run into rate-limit errors.
+
+## Future improvements
+
+* Better frontend styling
+* Separate Gemini client module
+* Stronger rate limiting or caching
+* Optional authentication before generating captions
