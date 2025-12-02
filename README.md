@@ -1,6 +1,6 @@
 # Caption_Crafter_AI
 
-A small Flask web app that generates short Instagram captions using Google's Gemini API. You enter a description of your post and choose a mood, and the app returns one clean caption. It also includes a mock fallback mode so it keeps working even when the API key is missing.
+A small Flask web app that generates short captions for your social media posts using Google's Gemini API. You enter a description of your post and choose a mood, and the app returns one clean caption. It also includes a mock fallback mode so it keeps working even when the API key is missing.
 
 ## Features
 
