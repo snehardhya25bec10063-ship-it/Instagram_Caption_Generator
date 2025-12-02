@@ -1,5 +1,7 @@
-- Flask Documentation: https://flask.palletsprojects.com/ 
-- OpenAI API Docs: https://platform.openai.com/docs/api-reference 
-- Python-dotenv: https://pypi.org/project/python-dotenv/
-- Jinja2 Templates: https://jinja.palletsprojects.
+flask==3.0.0
+python-dotenv==1.0.0
+requests==2.31.0
+google-generativeai==0.3.0
+gunicorn==21.2.0
+
 
