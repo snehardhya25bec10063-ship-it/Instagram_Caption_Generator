@@ -2,7 +2,7 @@
 
 ## Summary
 
-A small Flask web app that generates short Instagram captions using the Gemini (Generative Language) REST API. The app accepts a post description and a mood, then requests a single catchy caption from the model. If the Gemini API key is missing or calls fail, the app falls back to a lightweight local mock generator so the user still gets a usable caption.
+A small Flask web app that generates short captions for your social media posts using the Gemini (Generative Language) REST API. The app accepts a post description and a mood, then requests a single catchy caption from the model. If the Gemini API key is missing or calls fail, the app falls back to a lightweight local mock generator so the user still gets a usable caption.
 
 ## Key features
 
